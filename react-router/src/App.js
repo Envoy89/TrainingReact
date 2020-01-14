@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Admin from "./components/Admin";
+import Home from "./components/Home";
+import Genre from "./components/Genre";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      route: window.location.hash.substr(1)
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("hashchange", () => {
+      this.setState({
+        route: window.location.hash.substr(1)
+      });
+    });
+  }
+
+  render() {
+    let Child;
+
+    switch (this.state.route) {
+      case "/admin":
+        Child = Admin;
+        break;
+      case "/genre":
+        Child = Genre;
+        break;
+      default:
+        Child = Home;
+    }
+
+    return (
+      <div className="container">
+        <h1>App</h1>
+        <ul>
+          <li>
+            <a href="#/admin">Admin</a>
+          </li>
+          <li>
+            <a href="#/genre">Genre</a>
+          </li>
+        </ul>
+        <Child />
+      </div>
+    );
+  }
 }
-
-export default App;
