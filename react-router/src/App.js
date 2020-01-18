@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Admin from "./components/Admin";
 import Genre from "./components/Genre";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 export default class App extends Component {
   render() {
@@ -27,6 +28,9 @@ export default class App extends Component {
             </Route>
             <Route path="/genre">
               <Genre />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </div>
