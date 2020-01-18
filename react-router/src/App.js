@@ -1,51 +1,36 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Admin from "./components/Admin";
-import Home from "./components/Home";
 import Genre from "./components/Genre";
+import Home from "./components/Home";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      route: window.location.hash.substr(1)
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener("hashchange", () => {
-      this.setState({
-        route: window.location.hash.substr(1)
-      });
-    });
-  }
-
   render() {
-    let Child;
-
-    switch (this.state.route) {
-      case "/admin":
-        Child = Admin;
-        break;
-      case "/genre":
-        Child = Genre;
-        break;
-      default:
-        Child = Home;
-    }
-
     return (
-      <div className="container">
-        <h1>App</h1>
-        <ul>
-          <li>
-            <a href="#/admin">Admin</a>
-          </li>
-          <li>
-            <a href="#/genre">Genre</a>
-          </li>
-        </ul>
-        <Child />
-      </div>
+      <Router>
+        <div className="container">
+          <h1>App</h1>
+          <ul>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
+            <li>
+              <Link to="/genre">Genre</Link>
+            </li>
+          </ul>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/admin">
+              <Admin />
+            </Route>
+            <Route path="/genre">
+              <Genre />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
