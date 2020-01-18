@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import Admin from "./components/Admin";
-import Genre from "./components/Genre";
-import Home from "./components/Home";
-import NotFound from "./components/NotFound";
+import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
+import getRoutes from "./routes";
 
 export default class App extends Component {
   render() {
@@ -11,28 +8,15 @@ export default class App extends Component {
       <Router>
         <div className="container">
           <h1>App</h1>
-          <ul>
+          <ul className="nav nav-pills">
             <li>
-              <Link to="/admin">Admin</Link>
+              <Link to="/admin">Админка</Link>
             </li>
             <li>
-              <Link to="/genre">Genre</Link>
+              <Link to="/list">Список жанров</Link>
             </li>
           </ul>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/admin">
-              <Admin />
-            </Route>
-            <Route path="/genre">
-              <Genre />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
+          <Switch>{getRoutes()}</Switch>
         </div>
       </Router>
     );
