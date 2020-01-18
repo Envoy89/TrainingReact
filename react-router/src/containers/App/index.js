@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
-import getRoutes from "./routes";
+import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
+import getRoutes from "../../routes";
+
+import "./App.css";
 
 export default class App extends Component {
   render() {
@@ -10,10 +12,12 @@ export default class App extends Component {
           <h1>App</h1>
           <ul className="nav nav-pills">
             <li>
-              <Link to="/admin">Админка</Link>
+              <NavLink to="/admin">Админка</NavLink>
             </li>
             <li>
-              <Link to="/list">Список жанров</Link>
+              <NavLink to="/list" activeClassName="active">
+                Список жанров
+              </NavLink>
             </li>
           </ul>
           <Switch>{getRoutes()}</Switch>
