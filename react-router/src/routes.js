@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import List from "./components/List";
 import Release from "./components/Release";
+import Login from "./components/Login";
 
 const routes = [
   {
@@ -14,8 +15,13 @@ const routes = [
     exact: true
   },
   {
+    path: "/login",
+    component: Login
+  },
+  {
     path: "/admin",
-    component: Admin
+    component: Admin,
+    checkLogin: true
   },
   {
     path: "/genre/:genreId/:releaseId",
@@ -40,11 +46,16 @@ export default function getRoutes() {
 }
 
 function RouteWithSubRoutes(route) {
-  return (
-    <Route
-      path={route.path}
-      exact={route.exact}
-      render={props => <route.component {...props} routes={route.routes} />}
-    />
-  );
+  const check = route.checkLogin ? checkLogin() : true;
+  const renderFunc = props =>
+    check ? <route.component {...props} routes={route.routes} /> : <div></div>;
+  return <Route path={route.path} exact={route.exact} render={renderFunc} />;
+}
+
+function checkLogin() {
+  const login = window.localStorage.getItem("rr_login");
+  if (login === "admin") {
+    return true;
+  }
+  return false;
 }

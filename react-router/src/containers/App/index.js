@@ -24,6 +24,9 @@ export default class App extends Component {
                 Список жанров
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/login">Войти</NavLink>
+            </li>
           </ul>
           <Switch>{getRoutes()}</Switch>
         </div>
