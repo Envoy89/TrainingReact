@@ -12,6 +12,11 @@ export default class App extends Component {
           <h1>App</h1>
           <ul className="nav nav-pills">
             <li>
+              <NavLink exact to="/">
+                Главная
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/admin">Админка</NavLink>
             </li>
             <li>
