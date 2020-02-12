@@ -11,10 +11,13 @@ export default function userstate(state = initialState, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
       // TODO
-      return action.payload;
-    case LOGIN_SUCCESS:
-      // TODO
       return {};
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        name: action.payload.name,
+        isAuthenticated: action.payload.isAuthenticated
+      };
     case LOGIN_FAIL:
       // TODO
       return {};

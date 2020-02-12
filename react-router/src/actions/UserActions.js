@@ -4,12 +4,31 @@ import {
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS
 } from "../constants/User";
+import { ROUTING } from "../constants/Routing";
 
 export function login(payload) {
-  // TODO
-  return {
-    type: LOGIN_REQUEST,
-    payload: payload
+  return dispatch => {
+    dispatch({
+      type: LOGIN_REQUEST
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: {
+          name: payload.name,
+          isAuthenticated: true
+        }
+      });
+
+      dispatch({
+        type: ROUTING,
+        payload: {
+          method: "push", //или, например, replace
+          nextUrl: "/admin"
+        }
+      });
+    }, 1000);
   };
 }
 export function logout() {

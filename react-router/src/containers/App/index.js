@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom";
+import { Router, NavLink, Switch } from "react-router-dom";
 import getRoutes from "../../routes";
-
+import history from "../../history";
 import "./App.css";
 
 export default class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="container">
           <h1>App</h1>
           <ul className="nav nav-pills">
