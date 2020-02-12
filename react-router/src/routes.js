@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import List from "./components/List";
 import Release from "./components/Release";
-import Login from "./components/Login";
+import Login from "./containers/LoginPage";
 
 const routes = [
   {
