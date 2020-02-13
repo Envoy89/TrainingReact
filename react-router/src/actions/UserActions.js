@@ -17,14 +17,14 @@ export function login(payload) {
         type: LOGIN_SUCCESS,
         payload: {
           name: payload.name,
-          isAuthenticated: true
+          isAuthenticated: payload.name === "admin"
         }
       });
 
       dispatch({
         type: ROUTING,
         payload: {
-          method: "push", //или, например, replace
+          method: "replace", //или, например, replace
           nextUrl: "/admin"
         }
       });
