@@ -1,0 +1,14 @@
+{
+    "name": "react-learn",
+    "version": "1.0.0",
+    "description": "First meet",
+    "main": "index.html",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Minyazev Ruzil",
+    "license": "MIT",
+    "devDependencies": {
+        "express": "^4.16.3"
+    }
+}
