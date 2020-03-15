@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Home(props) {
+export default function Profile() {
     return (
         <div>
-            Welcome {props.userName}
+            Hello, Im profile!
         </div>
     )
 }
