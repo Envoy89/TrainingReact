@@ -1,5 +1,3 @@
-import { createBrowserHistory } from "history";
-
 import { ROUTING } from "../constants/Routing";
 
 import history from "../history";
