@@ -10,7 +10,7 @@ import Profile from './Profile';
 function App() {
   return (
     <Router history={history}>
-      <Header></Header>
+      <Header />
       <Switch>
         <Route exact path='/'>
           <HomeContainer />
