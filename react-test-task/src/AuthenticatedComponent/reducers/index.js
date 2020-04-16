@@ -1,7 +1,17 @@
-const initialState = {
-    isAuthenticated: false,
-}
+import {
+    LOGIN,
+    LOGOUT
+} from '../constants';
+
+const initialState = JSON.parse(window.localStorage.getItem("rr_user_test")) || {
+    isAuthenticated: false
+};
 
 export function authReducer(state = initialState, action) {
-    return state;
+    switch (action.type) {
+        case LOGIN:
+            return {...state, isAuthenticated: action.payload.isAuthenticated}
+        default:
+            return state;
+    }
 }
