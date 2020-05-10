@@ -1,6 +1,5 @@
 import {
-    LOGIN,
-    LOGOUT
+    LOGIN
 } from '../constants';
 
 const initialState = JSON.parse(window.localStorage.getItem("rr_user_test")) || {
