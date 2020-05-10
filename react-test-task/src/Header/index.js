@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     return (
-        <div>
+        <div className = "header">
             <ul>
                 <li>
                     <NavLink exact to='/'>

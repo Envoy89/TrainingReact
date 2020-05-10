@@ -3,7 +3,7 @@ import { ROUTING } from '../../middlewares/constants';
 
 export function auth(payload) {
     return dispatch => {
-        if (payload.login === 'admin' && payload.password === '1234') {
+        if (payload.login === 'admin' && payload.password === '12345') {
 
             const newState = changeUserAuthData(true);
 
@@ -22,7 +22,7 @@ export function auth(payload) {
         } else {
             //const newState = changeUserAuthData(false);
 
-            alert('Wrong password');
+            alert('Имя пользователя или пароль введены не верно');
             
             dispatch({
                 type: LOGIN_FAILED

@@ -7,25 +7,28 @@ import './App.css';
 import News from './News';
 import Profile from './Profile';
 import Login from './Login';
+import './App.css';
 
 function App() {
   return (
     <Router history={history}>
       <Header />
-      <Switch>
-        <Route exact path='/'>
-          <HomeContainer />
-        </Route>
-        <Route path='/news'>
-          <News />
-        </Route>
-        <Route path='/profile'>
-          <Profile />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-      </Switch>
+      <div className="main-body">
+        <Switch>
+          <Route exact path='/'>
+            <HomeContainer />
+          </Route>
+          <Route path='/news'>
+            <News />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 }
